@@ -92,10 +92,8 @@ export function getWeatherNow(a, b) {
             console.log("else");
         };
     }
-
-
 };
-export function getweatherId() {
+/*export function getweatherId() {
     var key = "dd926d971013aa0a900f7351eb7b0d58";
     var apiCurrentId = "https://api.openweathermap.org/data/2.5/weather?id={2507475}&appid=" + key + "&lang=fr&units=metric";
     console.log(apiCurrentId);
@@ -107,4 +105,4 @@ export function getweatherId() {
         .then(function (dataCurrent) {
 
         });
-}
+}*/
