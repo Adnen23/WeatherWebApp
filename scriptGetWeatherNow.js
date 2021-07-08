@@ -1,4 +1,4 @@
-import { orientationVent } from "./orientationVent.js";
+//import { orientationVent } from "./orientationVent.js";
 export function getWeatherNow(a, b) {
 
     var hh;
@@ -12,7 +12,10 @@ export function getWeatherNow(a, b) {
             return dataCurrent;
         })
         .then(function (dataCurrent) {
-            document.getElementById("villeDisplay").innerHTML = dataCurrent.name + "<span id='spanCountry'>" + "  ( " + dataCurrent.sys.country + " )" + "</span>";
+            var villeDisp = document.getElementsByClassName("card-subtitle villeDisplay");
+                for (let index = 0; index < villeDisp.length; index++) {
+                    villeDisp[index].innerHTML = dataCurrent.name + "<span id='spanCountry'>" + "  ( " + dataCurrent.sys.country + " )" + "</span>";   
+                }
             var iconeValue = dataCurrent['weather'][0]['icon'];
             document.getElementById("iconeWeatherNow").src = "http://openweathermap.org/img/wn/" + iconeValue + "@2x.png";
             var textCiel = dataCurrent['weather'][0]['description'];
