@@ -2,7 +2,9 @@
 //import { localiseMaPosition } from "./scriptLocalisation.js";
 //import { getWeatherNow } from "./scriptGetWeather.js";
 import { errorText, verifierVille } from "./scriptLocalisation.js";
-import { getWeatherNow, getweatherId } from "./scriptGetWeatherNow.js";
+import { getWeatherNow } from "./scriptGetWeatherNow.js";
+import { getWeatherHourly } from "./scriptGetWeatherHourly.js";
+
 
 var btnLocalisation = document.getElementById("localisation");
 var errorMessage = document.getElementById("errorMsg");
@@ -21,7 +23,8 @@ function localiseMaPosition() {
             var c = x.coords.altitude;
             console.log(a + " " + b + " " + c) ;
             getWeatherNow(a, b);
-            getweatherId();
+            getWeatherHourly(a, b);
+            //getweatherId();
         };
         //Message d'erreur Impossible de localiser
         function errorLocal() {
