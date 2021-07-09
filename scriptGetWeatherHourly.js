@@ -14,7 +14,7 @@ export function getWeatherHourly(a, b) {
             
             if (!document.getElementById("hourlyPrevision")) {
                 
-                for (let index = 0; index < 13; index++) {
+                for (let index = 0; index < 8; index++) {
             
             //créer li contenant la ligne complete
             var li1 = document.createElement("li");
@@ -58,6 +58,9 @@ export function getWeatherHourly(a, b) {
             div4.appendChild(img1);
             document.getElementById("tt").appendChild(li1);
             console.log(li1);
-            }
+             
+            //document.getElementById("cardHourly").className="card h-25 overflow-scroll ";
+        
+        }
         }   })
 }
