@@ -4,6 +4,7 @@
 import { errorText, verifierVille } from "./scriptLocalisation.js";
 import { getWeatherNow } from "./scriptGetWeatherNow.js";
 import { getWeatherHourly } from "./scriptGetWeatherHourly.js";
+import { getWeatherDaily } from "./scriptGetWeatherDaily.js";
 
 
 var btnLocalisation = document.getElementById("localisation");
@@ -24,7 +25,7 @@ function localiseMaPosition() {
             console.log(a + " " + b + " " + c) ;
             getWeatherNow(a, b);
             getWeatherHourly(a, b);
-            //getweatherId();
+            getWeatherDaily(a, b);
         };
         //Message d'erreur Impossible de localiser
         function errorLocal() {

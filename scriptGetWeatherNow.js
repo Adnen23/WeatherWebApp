@@ -14,7 +14,7 @@ export function getWeatherNow(a, b) {
         .then(function (dataCurrent) {
             var villeDisp = document.getElementsByClassName("card-subtitle villeDisplay");
                 for (let index = 0; index < villeDisp.length; index++) {
-                    villeDisp[index].innerHTML = dataCurrent.name + "<span id='spanCountry'>" + "  ( " + dataCurrent.sys.country + " )" + "</span>";   
+                    villeDisp[index].innerHTML = dataCurrent.name + "  ( " + dataCurrent.sys.country + " )";   
                 }
             var iconeValue = dataCurrent['weather'][0]['icon'];
             document.getElementById("iconeWeatherNow").src = "http://openweathermap.org/img/wn/" + iconeValue + "@2x.png";

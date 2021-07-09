@@ -1,5 +1,3 @@
-
-
 var key = "dd926d971013aa0a900f7351eb7b0d58";
 
 export function getWeatherHourly(a, b) {
@@ -56,7 +54,7 @@ export function getWeatherHourly(a, b) {
             div3.appendChild(p2);
             div3.appendChild(p3);
             div4.appendChild(img1);
-            document.getElementById("tt").appendChild(li1);
+            document.getElementById("affichageHourly").appendChild(li1);
             console.log(li1);
              
             //document.getElementById("cardHourly").className="card h-25 overflow-scroll ";
