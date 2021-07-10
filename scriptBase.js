@@ -1,7 +1,7 @@
 // Localiser ma position
 //import { localiseMaPosition } from "./scriptLocalisation.js";
 //import { getWeatherNow } from "./scriptGetWeather.js";
-import { errorText, verifierVille } from "./scriptLocalisation.js";
+import { errorText, verifierVille, StyleInputVille} from "./scriptLocalisation.js";
 import { getWeatherNow } from "./scriptGetWeatherNow.js";
 import { getWeatherHourly } from "./scriptGetWeatherHourly.js";
 import { getWeatherDaily } from "./scriptGetWeatherDaily.js";
@@ -15,6 +15,7 @@ var btnChercherUneVille = document.getElementById("chercherVille");
 btnLocalisation.addEventListener("click", localiseMaPosition);
 
 function localiseMaPosition() {
+    StyleInputVille();
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, errorLocal);
         //Fonction de localisation
@@ -37,5 +38,6 @@ function localiseMaPosition() {
 
 //Fonction de chercher une ville
 btnChercherUneVille.addEventListener("click", verifierVille);
+//ajouter 'form-control is-invalid' dans le cas ou le nom de la ville n'existe pas ou vide
 
 

@@ -7,10 +7,13 @@ export var errorText = {
     errorChampVille: {
         msg: "<strong>Champ de ville vide !</strong> Veuillez saisir une ville",
         msgClassName: "alert alert-danger",
+        formType :"form-control is-invalid",
     },
     noErrorMsg: {
         msg: "",
         msgClassName: "",
+        formType :"form-control",
+
     },
     errorVilleIntrouvable: {
         msg: "<strong>Ville n'existe pas !</strong> Veuillez saisir à nouveau le nom de la ville",
@@ -18,10 +21,7 @@ export var errorText = {
     }
 };
 
-
-
 //Chercher une ville
-
 
 var villeInput = document.getElementById("villeName");
 var btnChercherUneVille = document.getElementById("chercherVille");
@@ -29,23 +29,26 @@ var btnChercherUneVille = document.getElementById("chercherVille");
 //Activer le style blanc de l'input nom de ville une fois qu'un texte est écrit
 
 //Validation du nom de la ville dans l'input
+var errorMessage = document.getElementById("errorMsg");
 btnChercherUneVille.addEventListener("click", verifierVille);
 export function verifierVille() {
-    var errorMessage = document.getElementById("errorMsg");
     if (villeInput.value == "") {
         errorMessage.className = errorText.errorChampVille.msgClassName;
         errorMessage.innerHTML = errorText.errorChampVille.msg;
-        villeInput.style.backgroundColor = "red";
+        villeInput.className = errorText.errorChampVille.formType;
+        
+        //villeInput.style.backgroundColor = "red";
         setTimeout(function () { villeInput.style.backgroundColor = "white" }, 3000);
         alert("Veuillez saisir le nom de la ville");
-
+        
     }
     villeInput.addEventListener("keydown", StyleInputVille)
 
-    //Fonction qui rend l'input du nom de la ville blanc
-    function StyleInputVille() {
-        errorMessage.className = errorText.noErrorMsg.msgClassName;
-        errorMessage.innerHTML = errorText.noErrorMsg.msg;
-    }
 };
 
+//Fonction qui rend l'input du nom de la ville blanc
+export function StyleInputVille() {
+       errorMessage.className = errorText.noErrorMsg.msgClassName;
+       errorMessage.innerHTML = errorText.noErrorMsg.msg;
+       villeInput.className = errorText.noErrorMsg.formType;
+    };
