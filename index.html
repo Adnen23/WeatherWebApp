@@ -76,14 +76,24 @@
       </div>
 
       <!--Daily Card-->
-      <div class="col">
-        <div class="card">
-          <div class="card-header text-center">
-            <h4>5 jours à venir</h4>
-            <h5 class="card-subtitle villeDisplay"></h5>
+      <div class="col accordion" id="accordionExample">
+        <div class="card" class="card accordion-item" id="cardDaily">
+          <div class="text-center accordion-header" id="headingOne">
+            
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+              aria-expanded="true" aria-controls="collapseTwo">
+              <div class="d-block text-center">
+                <h4>5 jours à venir</h4>
+                <h5 class="card-subtitle villeDisplay"></h5>
+              </div>
+            </button>
           </div>
-          <ul class="list-group" id="affichageDaily">
-
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <ul class="list-group list-group-flush accordion-body" id="affichageDaily">
+              <!-- affichage des prévisions pour les 5 jours à venir-->
+            </ul>
+          </div>
+          
             <!-- 
             <li class="list-group-item">
               

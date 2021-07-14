@@ -1,6 +1,6 @@
 var key = "dd926d971013aa0a900f7351eb7b0d58";
 
-export function getWeatherHourly(a, b) {
+export async function getWeatherHourly(a, b) {
     var apiPrevious = "https://api.openweathermap.org/data/2.5/onecall?lat=" + a + "&lon=" + b + "&exclude=alerts&appid=" + key + "&lang=fr&units=metric";
     console.log(apiPrevious);
     fetch(apiPrevious)
