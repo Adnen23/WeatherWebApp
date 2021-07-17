@@ -55,7 +55,6 @@ export async function getWeatherHourly(a, b) {
             div3.appendChild(p3);
             div4.appendChild(img1);
             document.getElementById("affichageHourly").appendChild(li1);
-            console.log(li1);
              
             //document.getElementById("cardHourly").className="card h-25 overflow-scroll ";
         
