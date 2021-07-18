@@ -1,6 +1,7 @@
-//import { orientationVent } from "./orientationVent.js";
+
 import { getCountyDetail } from "./scriptGetCountryDetail.js";
 import { supprimeResult } from "./scriptLocalisation.js";
+import { orientationVent } from "./orientationVent.js";
 
 export function getWeatherNow(a, b) {
     var hh;
@@ -60,72 +61,15 @@ export function getWeatherNow(a, b) {
             div1.appendChild(p2);
             
             //créer le vent, l'humidité, lever et coucher de soleil
-            orientationVent(dataCurrent['wind']['deg']);
+            var h = orientationVent(dataCurrent['wind']['deg']);
             var p3 = document.createElement("p");
             p3.className ="card-text";
-            p3.innerHTML = "Vent : " + Math.round(dataCurrent.wind.speed * 3.6) + "Km/h" + " " + hh + "<br> Humidité : " + Math.round(dataCurrent.main.humidity) + "% <br>" + "Lever de soleil : " + new Date(dataCurrent.sys.sunrise * 1000).toLocaleTimeString() + "<br> Coucher de soleil : " + new Date(dataCurrent.sys.sunset * 1000).toLocaleTimeString();
+            p3.innerHTML = "Vent : " + Math.round(dataCurrent.wind.speed * 3.6) + "Km/h" + " " + h + "<br> Humidité : " + Math.round(dataCurrent.main.humidity) + "% <br>" + "Lever de soleil : " + new Date(dataCurrent.sys.sunrise * 1000).toLocaleTimeString() + "<br> Coucher de soleil : " + new Date(dataCurrent.sys.sunset * 1000).toLocaleTimeString();
+            console.log(h);
             //attaché les détails à la div
             div1.appendChild(p3);
-            getCountyDetail(codePays);
-        
+            getCountyDetail(codePays);  
     })
-    
-    function orientationVent(direction) {
-        if (direction > 348.75) {
-            hh = "N";
-        }
-        if (direction < 11.25) {
-            hh = "N";
-        }
-        else if (direction < 33.75 && direction > 11.25) {
-            hh = "NNE";
-        }
-        else if (direction < 56.25 && direction > 33.75) {
-            hh = "NE";
-        }
-        else if (direction < 78.75 && direction > 56.25) {
-            hh = "ENE";
-        }
-        else if (direction < 101.25 && direction > 78.75) {
-            hh = "E";
-        }
-        else if (direction < 123.75 && direction > 101.25) {
-            hh = "ESE";
-        }
-        else if (direction < 146.25 && direction > 123.75) {
-            hh = "SE";
-        }
-        else if (direction < 168.75 && direction > 146.25) {
-            hh = "SSE";
-        }
-        else if (direction < 192.25 && direction > 168.75) {
-            hh = "S";
-        }
-        else if (direction < 213.75 && direction > 192.25) {
-            hh = "SSW";
-        }
-        else if (direction < 236.25 && direction > 213.75) {
-            hh = "SW";
-        }
-        else if (direction < 258.75 && direction > 236.25) {
-            hh = "WSW";
-        }
-        else if (direction < 281.25 && direction > 258.75) {
-            hh = "W";
-        }
-        else if (direction < 303.75 && direction > 281.25) {
-            hh = "WNW";
-        }
-        else if (direction < 326.25 && direction > 303.75) {
-            hh = "NW";
-        }
-        else if (direction < 348.75 && direction > 326.25) {
-            hh = "WNW";
-        }
-        else {
-            console.log("else");
-        };
-    }
 };
 /*export function getweatherId() {
     var key = "dd926d971013aa0a900f7351eb7b0d58";

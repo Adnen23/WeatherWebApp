@@ -7,12 +7,12 @@ export var errorText = {
     errorChampVille: {
         msg: "<strong>Champ de ville vide !</strong> Veuillez saisir une ville",
         msgClassName: "alert alert-danger",
-        formType :"form-control is-invalid",
+        formType: "form-control is-invalid",
     },
     noErrorMsg: {
         msg: "",
         msgClassName: "",
-        formType :"form-control",
+        formType: "form-control",
 
     },
     errorVilleIntrouvable: {
@@ -35,11 +35,11 @@ export function verifierVille() {
         errorMessage.className = errorText.errorChampVille.msgClassName;
         errorMessage.innerHTML = errorText.errorChampVille.msg;
         villeInput.className = errorText.errorChampVille.formType;
-        
+
         //villeInput.style.backgroundColor = "red";
         setTimeout(function () { villeInput.style.backgroundColor = "white" }, 3000);
         alert("Veuillez saisir le nom de la ville");
-        
+
     }
     villeInput.addEventListener("keydown", StyleInputVille)
 
@@ -47,16 +47,43 @@ export function verifierVille() {
 
 //Fonction qui rend l'input du nom de la ville blanc
 export function StyleInputVille() {
-       errorMessage.className = errorText.noErrorMsg.msgClassName;
-       errorMessage.innerHTML = errorText.noErrorMsg.msg;
-       villeInput.className = errorText.noErrorMsg.formType;
-    };
+    errorMessage.className = errorText.noErrorMsg.msgClassName;
+    errorMessage.innerHTML = errorText.noErrorMsg.msg;
+    villeInput.className = errorText.noErrorMsg.formType;
+};
 
 //fonction qui supprime le résultat précédent pour pouvoir afficher la nouvelle recherche
-export function supprimeResult (){
+export function supprimeResult() {
     if (document.querySelector(".meteoPrev")) {
         var meteoPrev = document.querySelectorAll(".meteoPrev");
         for (let index = 0; index < meteoPrev.length; index++) {
             meteoPrev[index].remove();
         }
-}}
+    }
+    }
+
+//fonction qui affiche le jour de la prévision
+export function afficheJour(x) {
+    switch (x) {
+        case 0:
+            return "Dimanche";
+            break;
+        case 1:
+            return "Lundi";
+            break;
+        case 2:
+            return "Mardi";
+            break;
+        case 3:
+            return "Mercredi";
+            break;
+        case 4:
+            return "Jeudi";
+            break;
+        case 5:
+            return "Vendredi";
+            break;
+        case 6:
+            return "Samedi";
+    }
+}

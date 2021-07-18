@@ -1,3 +1,5 @@
+import { afficheJour } from "./scriptLocalisation.js";
+
 var key = "dd926d971013aa0a900f7351eb7b0d58";
 
 export function getWeatherDaily(a, b) {
@@ -29,7 +31,8 @@ export function getWeatherDaily(a, b) {
                     div2.className = "col-4 align-self-center text-center";
                     //créer la date de la prévision
                     var p1 = document.createElement("p");
-                    p1.textContent = new Date(dataDaily["daily"][index + 1]["dt"] * 1000).toLocaleDateString();
+                    var t = afficheJour(new Date(dataDaily["daily"][index + 1]["dt"] * 1000).getDay());
+                    p1.innerHTML = t + "<br>" +  new Date(dataDaily["daily"][index + 1]["dt"] * 1000).toLocaleDateString();
                     //créer la div qui contient l'état du ciel et la température min max
                     var div3 = document.createElement("div");
                     div3.className = "col-5 align-self-center text-center";
