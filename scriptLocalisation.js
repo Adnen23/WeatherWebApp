@@ -30,7 +30,6 @@ var btnChercherUneVille = document.getElementById("chercherVille");
 
 //Validation du nom de la ville dans l'input
 var errorMessage = document.getElementById("errorMsg");
-btnChercherUneVille.addEventListener("click", verifierVille);
 export function verifierVille() {
     if (villeInput.value == "") {
         errorMessage.className = errorText.errorChampVille.msgClassName;
@@ -52,3 +51,12 @@ export function StyleInputVille() {
        errorMessage.innerHTML = errorText.noErrorMsg.msg;
        villeInput.className = errorText.noErrorMsg.formType;
     };
+
+//fonction qui supprime le résultat précédent pour pouvoir afficher la nouvelle recherche
+export function supprimeResult (){
+    if (document.querySelector(".meteoPrev")) {
+        var meteoPrev = document.querySelectorAll(".meteoPrev");
+        for (let index = 0; index < meteoPrev.length; index++) {
+            meteoPrev[index].remove();
+        }
+}}

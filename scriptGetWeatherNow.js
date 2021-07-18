@@ -1,8 +1,11 @@
 //import { orientationVent } from "./orientationVent.js";
-export function getWeatherNow(a, b) {
+import { getCountyDetail } from "./scriptGetCountryDetail.js";
+import { supprimeResult } from "./scriptLocalisation.js";
 
+export function getWeatherNow(a, b) {
     var hh;
     var t;
+    var codePays;
     var key = "dd926d971013aa0a900f7351eb7b0d58";
     var apiCurrent = "https://api.openweathermap.org/data/2.5/weather?lat=" + a + "&lon=" + b + "&appid=" + key + "&lang=fr&units=metric";
     console.log(apiCurrent);
@@ -13,12 +16,16 @@ export function getWeatherNow(a, b) {
         })
         .then(function (dataCurrent) {
             var villeDisp = document.getElementsByClassName("card-subtitle villeDisplay");
-                for (let index = 0; index < villeDisp.length; index++) {
-                    villeDisp[index].innerHTML = dataCurrent.name + "  ( " + dataCurrent.sys.country + " )";   
-                }
-                if (!document.querySelector("#iconeWeatherNow")) {
-                    
-                
+            codePays = dataCurrent.sys.country;    
+            for (let index = 0; index < villeDisp.length; index++) {
+                villeDisp[index].innerHTML = dataCurrent.name + "  ( " + codePays + " )";   
+            }
+        
+            //créer la div principal
+            var div0 = document.createElement("div");
+            div0.className = "meteoPrev";
+            document.querySelector("#affichageNow").appendChild(div0);
+            
             //Récupérer l'icone de l'état du ciel depuis l'API
             var iconeValue = dataCurrent['weather'][0]['icon'];
             //créer l'image qui contient l'icone de l'état du ciel
@@ -28,13 +35,13 @@ export function getWeatherNow(a, b) {
             img1.className = "rounded mx-auto d-block";
             img1.id ="iconeWeatherNow"
             //attaché l'icone de l'état du ciel à la div contenant accordion-body
-            document.querySelector("#affichageNow").appendChild(img1);
+            div0.appendChild(img1);
             
             //créer la div qui va contenir les détails du ciel
             var div1 = document.createElement("div");
             div1.className = "card-body";
             //attaché la div1 après l'icone du ciel
-            document.querySelector("#affichageNow").appendChild(div1);
+            div0.appendChild(div1);
 
             //Récupérer l'état du ciel en ce moment
             var textCiel = dataCurrent['weather'][0]['description'];
@@ -59,14 +66,9 @@ export function getWeatherNow(a, b) {
             p3.innerHTML = "Vent : " + Math.round(dataCurrent.wind.speed * 3.6) + "Km/h" + " " + hh + "<br> Humidité : " + Math.round(dataCurrent.main.humidity) + "% <br>" + "Lever de soleil : " + new Date(dataCurrent.sys.sunrise * 1000).toLocaleTimeString() + "<br> Coucher de soleil : " + new Date(dataCurrent.sys.sunset * 1000).toLocaleTimeString();
             //attaché les détails à la div
             div1.appendChild(p3);
-        }})
-    function tempIntermidiaire(t1, t2) {
-        if (t2 > t1) {
-            t = (t1 + 60 - t2);
-        } else {
-            t = (t1 - t2);
-        }
-    }
+            getCountyDetail(codePays);
+        
+    })
     
     function orientationVent(direction) {
         if (direction > 348.75) {

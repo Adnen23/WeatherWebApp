@@ -14,6 +14,11 @@ export async function getWeatherHourly(a, b) {
                 
                 for (let index = 0; index < 8; index++) {
             
+            
+            //créer la div qui va contenir tous les détail
+            var div0 = document.createElement("div");
+            div0.className = "meteoPrev";
+
             //créer li contenant la ligne complete
             var li1 = document.createElement("li");
             li1.className = "list-group-item";
@@ -46,6 +51,7 @@ export async function getWeatherHourly(a, b) {
             img1.className = "img-fluid";
             img1.src = "http://openweathermap.org/img/wn/" + dataPrevious["hourly"][6]["weather"][0]["icon"] + "@2x.png";
 
+            div0.appendChild(li1);
             li1.appendChild(div1);
             div1.appendChild(div2);
             div1.appendChild(div3);
@@ -54,7 +60,7 @@ export async function getWeatherHourly(a, b) {
             div3.appendChild(p2);
             div3.appendChild(p3);
             div4.appendChild(img1);
-            document.getElementById("affichageHourly").appendChild(li1);
+            document.getElementById("affichageHourly").appendChild(div0);
              
             //document.getElementById("cardHourly").className="card h-25 overflow-scroll ";
         

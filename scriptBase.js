@@ -1,16 +1,15 @@
 // Localiser ma position
 //import { localiseMaPosition } from "./scriptLocalisation.js";
 //import { getWeatherNow } from "./scriptGetWeather.js";
-import { errorText, verifierVille, StyleInputVille } from "./scriptLocalisation.js";
+import { errorText, verifierVille, StyleInputVille, supprimeResult } from "./scriptLocalisation.js";
 import { getWeatherNow } from "./scriptGetWeatherNow.js";
 import { getWeatherHourly } from "./scriptGetWeatherHourly.js";
 import { getWeatherDaily } from "./scriptGetWeatherDaily.js";
-
+import { chercherVille } from "./scriptChercherVille.js";
 
 var btnLocalisation = document.getElementById("localisation");
 var errorMessage = document.getElementById("errorMsg");
 var btnChercherUneVille = document.getElementById("chercherVille");
-
 
 btnLocalisation.addEventListener("click", localiseMaPosition);
 
@@ -24,18 +23,26 @@ function localiseMaPosition() {
             var b = x.coords.longitude;
             var c = x.coords.altitude;
             console.log(a + " " + b + " " + c);
+            supprimeResult();
             getWeatherNow(a, b);
             getWeatherHourly(a, b);
             getWeatherDaily(a, b);
-        };
-        //Message d'erreur Impossible de localiser
-        function errorLocal() {
-            errorMessage.className = errorText.errorLocalisation.msgClassName;
-            errorMessage.innerHTML = errorText.errorLocalisation.msg;
         }
     };
+    //Message d'erreur Impossible de localiser
+    function errorLocal() {
+        errorMessage.className = errorText.errorLocalisation.msgClassName;
+        errorMessage.innerHTML = errorText.errorLocalisation.msg;
+    }
 };
 
+
 //Fonction de chercher une ville
-btnChercherUneVille.addEventListener("click", verifierVille);
+btnChercherUneVille.addEventListener("click", trouverVille);
+function trouverVille() {
+    verifierVille();
+    supprimeResult();
+    chercherVille(document.querySelector("#villeName").value);
+}
+
 //ajouter 'form-control is-invalid' dans le cas ou le nom de la ville n'existe pas ou vide
