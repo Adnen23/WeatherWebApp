@@ -10,11 +10,16 @@ import { chercherVille } from "./scriptChercherVille.js";
 var btnLocalisation = document.getElementById("localisation");
 var errorMessage = document.getElementById("errorMsg");
 var btnChercherUneVille = document.getElementById("chercherVille");
+var villeName = document.querySelector("#villeName");
 
 btnLocalisation.addEventListener("click", localiseMaPosition);
 
 function localiseMaPosition() {
     StyleInputVille();
+    if (villeName.value) {
+        villeName.value = ""
+    }
+
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(showPosition, errorLocal);
         //Fonction de localisation
@@ -42,7 +47,16 @@ btnChercherUneVille.addEventListener("click", trouverVille);
 function trouverVille() {
     verifierVille();
     supprimeResult();
-    chercherVille(document.querySelector("#villeName").value);
+    chercherVille(villeName.value);
 }
+
+//Fonction de click sur la touche Ok pour lancher la recherche
+    document.addEventListener('keypress', codeClick)
+    function codeClick(e){
+        if (e.charCode == 13) {
+            trouverVille();
+        }
+    }
+
 
 //ajouter 'form-control is-invalid' dans le cas ou le nom de la ville n'existe pas ou vide

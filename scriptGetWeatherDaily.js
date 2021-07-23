@@ -16,12 +16,12 @@ export function getWeatherDaily(a, b) {
 
                 for (let index = 0; index < 5; index++) {
                     //créer la div principal
-                    var div0 = document.createElement("div");
-                    div0.className = "meteoPrev";
+                    //var div0 = document.createElement("div");
+                    //div0.className = "meteoPrev";
 
                     //Créer Li contenant la prévision journalière
                     var li1 = document.createElement("li");
-                    li1.className = "list-group-item";
+                    li1.className = "list-group-item meteoPrev";
                     li1.id = "dailyPrevision";
                     //créer la div1 de la ligne
                     var div1 = document.createElement("div");
@@ -51,7 +51,6 @@ export function getWeatherDaily(a, b) {
                     img1.className = "img-fluid";
                     img1.src = "http://openweathermap.org/img/wn/" + dataDaily["daily"][index + 1]["weather"][0]["icon"] + "@2x.png";
 
-                    div0.appendChild(li1);
                     li1.appendChild(div1);
                     div1.appendChild(div2);
                     div1.appendChild(div3);
@@ -60,7 +59,7 @@ export function getWeatherDaily(a, b) {
                     div3.appendChild(p2);
                     div3.appendChild(p3);
                     div4.appendChild(img1);
-                    document.getElementById("affichageDaily").appendChild(div0);
+                    document.getElementById("affichageDaily").appendChild(li1);
                 }
             }
         })
