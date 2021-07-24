@@ -53,7 +53,7 @@ function trouverVille() {
 //Fonction de click sur la touche Ok pour lancher la recherche
     document.addEventListener('keypress', codeClick)
     function codeClick(e){
-        if (e.charCode == 13) {
+        if (e.charCode == 13 && villeName.value) {
             trouverVille();
         }
     }

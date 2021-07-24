@@ -18,10 +18,11 @@ export function getWeatherNow(a, b) {
         .then(function (dataCurrent) {
             var villeDisp = document.getElementsByClassName("card-subtitle villeDisplay");
             codePays = dataCurrent.sys.country;    
+            document.querySelector('#collapseThree').className = "accordion-collapse collapse show ";
             for (let index = 0; index < villeDisp.length; index++) {
                 villeDisp[index].innerHTML = dataCurrent.name + "  ( " + codePays + " )";   
             }
-        
+            
             //créer la div principal
             var div0 = document.createElement("div");
             div0.className = "meteoPrev";
