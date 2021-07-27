@@ -66,7 +66,6 @@ export function getWeatherNow(a, b) {
             var p3 = document.createElement("p");
             p3.className ="card-text";
             p3.innerHTML = "Vent : " + Math.round(dataCurrent.wind.speed * 3.6) + "Km/h" + " " + h + "<br> Humidité : " + Math.round(dataCurrent.main.humidity) + "% <br>" + "Lever de soleil : " + new Date(dataCurrent.sys.sunrise * 1000).toLocaleTimeString() + "<br> Coucher de soleil : " + new Date(dataCurrent.sys.sunset * 1000).toLocaleTimeString();
-            console.log(h);
             //attaché les détails à la div
             div1.appendChild(p3);
             getCountyDetail(codePays);  

@@ -1,6 +1,7 @@
 import { getWeatherNow } from "./scriptGetWeatherNow.js";
 import { getWeatherHourly } from "./scriptGetWeatherHourly.js";
 import { getWeatherDaily } from "./scriptGetWeatherDaily.js";
+import { getPrayerTime } from "./scriptGetPrayerTime.js";
 
 var key = "dd926d971013aa0a900f7351eb7b0d58";
 var villeInput = document.querySelector("#villeName").value;
@@ -12,9 +13,14 @@ export async function chercherVille(ville) {
     //Récupérer la latitude et la longitude
     var a = data1.coord.lat;
     var b = data1.coord.lon;
+    var toDay = new Date();
+    var c = toDay.getMonth() + 1;
+    var d = toDay.getFullYear(); 
     console.log(a + ' + ' + b);
     //Live météo by namme
     getWeatherNow(a, b);
     getWeatherHourly(a, b);
     getWeatherDaily(a, b);
+    console.log(c);
+    getPrayerTime(a, b, c, d);
 }

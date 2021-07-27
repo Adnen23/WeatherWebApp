@@ -42,7 +42,7 @@
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
               data-bs-target="#collapseThree" aria-expanded="true" aria-controls="collapseThree">
               <div class="d-block text-center">
-                <h4>Live</h4> 
+                <h4>Live Météo</h4> 
                 <h5 class="card-subtitle villeDisplay"></h5>
               </div>
             </button>
@@ -101,22 +101,42 @@
 
 
         <!--Détail du pays-->
-
+        
         <div class="card accordion-item" id="cardDetailPays">
           <div class="text-center accordion-header" id="headingFour">
             <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-              data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
+            data-bs-target="#collapseFour" aria-expanded="true" aria-controls="collapseFour">
               <div class="d-block text-center">
-                <h4>Pays</h4>
+                <h4>Infos Pays</h4>
+                <h5 class="card-subtitle villeDisplay"></h5>
+              </div>
+            </button>
+          </div>
+          
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+            data-bs-parent="#accordionExample">
+            <div class="accordion-body" id="affichageDetailPays">
+              <!-- affichage des détails du pays-->
+            </div>
+          </div>
+        </div>
+        
+        <!--Heures de prière-->
+        <div class="card accordion-item" id="cardPrayerTime">
+          <div class="text-center accordion-header" id="headingFive">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+              data-bs-target="#collapseFive" aria-expanded="true" aria-controls="collapseFive">
+              <div class="d-block text-center">
+                <h4>Heure des prières</h4>
                 <h5 class="card-subtitle villeDisplay"></h5>
               </div>
             </button>
           </div>
 
-          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
             data-bs-parent="#accordionExample">
-            <div class="accordion-body" id="affichageDetailPays">
-              <!-- affichage des détails du pays-->
+            <div class="accordion-body" id="affichageHeurePriere">
+              <!-- affichage des horraires de prière-->
             </div>
           </div>
         </div>
