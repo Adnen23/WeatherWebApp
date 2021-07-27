@@ -7,7 +7,6 @@ import { getWeatherHourly } from "./scriptGetWeatherHourly.js";
 import { getWeatherDaily } from "./scriptGetWeatherDaily.js";
 import { chercherVille } from "./scriptChercherVille.js";
 import { getPrayerTime } from "./scriptGetPrayerTime.js";
-//import { getParayerTimeByName } from "./scriptGetPrayerTime.js";
 
 var btnLocalisation = document.getElementById("localisation");
 var errorMessage = document.getElementById("errorMsg");
@@ -16,7 +15,7 @@ var villeName = document.querySelector("#villeName");
 
 
 btnLocalisation.addEventListener("click", () => {
-    
+
     StyleInputVille();
     if (villeName.value) {
         villeName.value = ""
@@ -27,14 +26,14 @@ btnLocalisation.addEventListener("click", () => {
         function showPosition(x) {
             var a = x.coords.latitude;
             var b = x.coords.longitude;
-            var c = x.coords.altitude;
-            alert(c);
-            console.log(a + " " + b + " " + c);
+            var toDay = new Date();
+            var c = toDay.getMonth() + 1;
+            var d = toDay.getFullYear();
             supprimeResult();
             getWeatherNow(a, b);
             getWeatherHourly(a, b);
             getWeatherDaily(a, b);
-            getPrayerTime(b, a, 10);
+            getPrayerTime(a, b, c, d);
         }
         //Message d'erreur Impossible de localiser
         function errorLocal() {

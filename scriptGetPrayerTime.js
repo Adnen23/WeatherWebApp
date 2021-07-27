@@ -6,7 +6,6 @@ export async function getPrayerTime(a, b, c, d) {
     const data1 = await response.json()
     let h = new Date().getDate();
     console.log(data1);
-    console.log(data1.data[h - 1].timings.Fajr)
 
     let heurePriere = document.querySelector("#affichageHeurePriere");
     heurePriere.innerHTML = `
