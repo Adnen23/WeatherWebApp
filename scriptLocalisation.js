@@ -13,11 +13,12 @@ export var errorText = {
         msg: "",
         msgClassName: "",
         formType: "form-control",
-
+        
     },
     errorVilleIntrouvable: {
         msg: "<strong>Ville n'existe pas !</strong> Veuillez saisir à nouveau le nom de la ville",
         msgClassName: "alert alert-danger",
+        formType: "form-control is-invalid",
     }
 };
 

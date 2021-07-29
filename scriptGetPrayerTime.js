@@ -4,10 +4,9 @@ import { NonbreJourMois } from "./scriptLocalisation.js";
 export async function getPrayerTime(a, b, c, d) {
 
     //const response = await fetch("https://api.pray.zone/v2/times/today.json?longitude=" + a + "&latitude=" + b + "&elevation=" + c + "&school=8")
-    const response = await fetch("https://api.aladhan.com/v1/calendar?latitude=" + a + "&longitude=" + b + "&method=2&month=" + c + "&year=" + d + "&method=3")
+    const response = await fetch("https://api.aladhan.com/v1/calendar?latitude=" + a + "&longitude=" + b + "&method=2&month=" + c + "&year=" + d + "&method=3&tune=0,0,0,0,0,3,0,0,0")
     const data1 = await response.json()
     var h = new Date().getDate();
-    console.log(data1);
     afficheHeurePriere();
     function afficheHeurePriere() {
         let heurePriere = document.querySelector("#affichageHeurePriere");

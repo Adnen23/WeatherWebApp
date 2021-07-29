@@ -18,5 +18,4 @@ export async function getCountyDetail(codePays) {
                         <li class="list-group-item">Monnaie : ${data.currencies[0].name}, ${data.currencies[0].code}, ${data.currencies[0].symbol}</li>
                     </ul>
     ` ;
-    console.log(data);
 }

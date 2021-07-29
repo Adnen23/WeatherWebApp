@@ -9,7 +9,6 @@ export function getWeatherNow(a, b) {
     var codePays;
     var key = "dd926d971013aa0a900f7351eb7b0d58";
     var apiCurrent = "https://api.openweathermap.org/data/2.5/weather?lat=" + a + "&lon=" + b + "&appid=" + key + "&lang=fr&units=metric";
-    console.log(apiCurrent);
     fetch(apiCurrent)
         .then(function (response) {
             var dataCurrent = response.json();
@@ -69,7 +68,9 @@ export function getWeatherNow(a, b) {
             //attaché les détails à la div
             div1.appendChild(p3);
             getCountyDetail(codePays);  
-    })
+    }
+    
+    )
 };
 /*export function getweatherId() {
     var key = "dd926d971013aa0a900f7351eb7b0d58";
