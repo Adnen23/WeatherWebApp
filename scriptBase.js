@@ -1,6 +1,3 @@
-// Localiser ma position
-//import { localiseMaPosition } from "./scriptLocalisation.js";
-//import { getWeatherNow } from "./scriptGetWeather.js";
 import { errorText, verifierVille, StyleInputVille, supprimeResult } from "./scriptLocalisation.js";
 import { getWeatherNow } from "./scriptGetWeatherNow.js";
 import { getWeatherHourly } from "./scriptGetWeatherHourly.js";
@@ -43,24 +40,6 @@ btnLocalisation.addEventListener("click", () => {
     };
 });
 
-
-
-/*
-function localiseMaPosition() {
-    //localiseMaPositiona();
-    supprimeResult();
-    StyleInputVille();
-    if (villeName.value) {
-        villeName.value = ""
-    }
-    
-    getWeatherNow(a, b);
-    getWeatherHourly(a, b);
-    getWeatherDaily(a, b);
-    getPrayerTime(b, a, c);
-};
-*/
-
 //Fonction de chercher une ville
 btnChercherUneVille.addEventListener("click", trouverVille);
 function trouverVille() {
@@ -78,15 +57,5 @@ function codeClick(e) {
     }
 }
 
-
 //ajouter 'form-control is-invalid' dans le cas ou le nom de la ville n'existe pas ou vide
 
-
-
-latitude: 36.605
-local_offset: 1
-longitude: 2.1908
-
-latitude: 36.4627
-local_offset: 1
-longitude: 2.682
