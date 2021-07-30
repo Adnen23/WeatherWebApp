@@ -1,9 +1,29 @@
-h1  {
-    color: brown;
+h1, h3{
+    color:blue;
+}
+
+#entete{
+    background: transparent url("cloud.png") no-repeat;
+/*background: #0C0ACE;
+background: -moz-radial-gradient(center, #0C0ACE 0%, #1C6EA4 0%, #062947 100%);
+background: -webkit-radial-gradient(center, #0C0ACE 0%, #1C6EA4 0%, #062947 100%);
+background: radial-gradient(ellipse at center, #0C0ACE 0%, #1C6EA4 0%, #062947 100%);*/
 }
 
 
 @media (min-width: 576px) { 
 
 }
-
+.accordion-button {
+    background-color: red    ;
+}
+.accordion-collapse .list-group-item {
+    background-color: #d6e3e6    ;
+}
+.accordion-body{
+    background-color: #d6e3e6    ;
+}
+.collapsed{
+    background-color: #77d1f3
+    ;
+}
